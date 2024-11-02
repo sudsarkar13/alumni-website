@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${jetBrainsMono.variable} antialiased`}
+				className={`${jetBrainsMono.variable} antialiased bg-slate-200 dark:bg-primary-foreground`}
 				suppressHydrationWarning>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<Header />
