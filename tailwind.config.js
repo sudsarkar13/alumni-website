@@ -136,6 +136,14 @@ module.exports = {
   					transform: 'rotate(215deg) translateX(-500px)',
   					opacity: '0'
   				}
+  			},
+  			'background-position-spin': {
+  				'0%': {
+  					backgroundPosition: 'top center'
+  				},
+  				'100%': {
+  					backgroundPosition: 'bottom center'
+  				}
   			}
   		},
   		animation: {
@@ -146,7 +154,8 @@ module.exports = {
   			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
   			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
   			shine: 'shine var(--duration) infinite linear',
-  			meteor: 'meteor 5s linear infinite'
+  			meteor: 'meteor 5s linear infinite',
+  			'background-position-spin': 'background-position-spin 3000ms infinite alternate'
   		}
   	}
   },
