@@ -53,6 +53,7 @@
     "react-day-picker": "8.10.1",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
     "react-hook-form": "^7.53.1",
+    "react-icon-cloud": "^4.1.4",
     "react-resizable-panels": "^2.1.6",
     "react-spring": "^9.7.4",
     "react-tweet": "^3.2.1",
