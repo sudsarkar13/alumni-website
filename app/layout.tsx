@@ -4,7 +4,7 @@ import "./globals.css";
 
 // components
 import { ThemeProvider } from "@/components/themes/theme-provider";
-import Header from "@/components/navigation/Header";
+import { Header } from "@/components/navigation/Header";
 
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
