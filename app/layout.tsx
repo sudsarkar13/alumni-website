@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+// components
+import { ThemeProvider } from "@/components/themes/theme-provider";
+import Header from "@/components/navigation/Header";
+
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -23,7 +27,10 @@ export default function RootLayout({
 			<body
 				className={`${jetBrainsMono.variable} antialiased`}
 				suppressHydrationWarning>
-				{children}
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					<Header />
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);
