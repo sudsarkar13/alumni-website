@@ -1,42 +1,44 @@
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import ShimmerButton from "@/components/ui/shimmer-button";
-import Nav from "./Nav";
+import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/themes/theme-toggle";
+import Nav from "./Nav";
 import MobileNav from "./MobileNav";
+import ShimmerButton from "@/components/ui/shimmer-button";
 
-const Header: React.FC = () => {
+export function Header() {
 	return (
-		<main>
-			<header className={`py-8 xl:py-12 text-black dark:text-white`}>
-				<div className={`container mx-auto flex justify-between`}>
-					{/* logo */}
-					<Link href="/">
-						<h1 className={`text-4xl font-semibold`}>
-							Logo<span className={`text-[#FFD700]`}>.</span>
-						</h1>
-					</Link>
-					{/* desktop nav */}
-					<div className={`hidden lg:flex items-center gap-8`}>
-						<Nav />
-						<Link href="#">
-							<ShimmerButton className={`shadow-2xl`}>
-								<span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white">
-									Join your peers
-								</span>
-							</ShimmerButton>
-						</Link>
+		<header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+			<nav className="container flex h-16 items-center justify-between">
+				{/* Logo */}
+				<Link href="/" className="flex items-center space-x-2">
+					<span className="text-2xl font-bold">
+						Alumni
+						<span className="text-yellow-500 dark:text-[#00ff99]">Connect</span>
+					</span>
+				</Link>
+
+				{/* Desktop Navigation */}
+				<div className="hidden lg:block">
+					<Nav />
+				</div>
+
+				{/* Actions */}
+				<div className="flex items-center space-x-4">
+					<div className="hidden lg:flex md:items-center md:space-x-4">
+						<ShimmerButton className="shadow-2xl">
+							<span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white">
+								Join Network
+							</span>
+						</ShimmerButton>
 						<ThemeToggle />
 					</div>
-					{/* mobile nav */}
-					<div className={`lg:hidden`}>
+
+					{/* Mobile Menu */}
+					<div className="lg:hidden">
 						<MobileNav />
 					</div>
 				</div>
-			</header>
-		</main>
+			</nav>
+		</header>
 	);
-};
-
-export default Header;
+}
