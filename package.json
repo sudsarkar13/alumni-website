@@ -58,6 +58,7 @@
     "react-spring": "^9.7.4",
     "react-tweet": "^3.2.1",
     "recharts": "^2.13.3",
+    "shiki": "^1.22.2",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
