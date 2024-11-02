@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import Nav from "./Nav";
 import { ThemeToggle } from "@/components/themes/theme-toggle";
+import MobileNav from "./MobileNav";
 
 const Header: React.FC = () => {
 	return (
@@ -30,6 +30,9 @@ const Header: React.FC = () => {
 						<ThemeToggle />
 					</div>
 					{/* mobile nav */}
+					<div className={`lg:hidden`}>
+						<MobileNav />
+					</div>
 				</div>
 			</header>
 		</main>
