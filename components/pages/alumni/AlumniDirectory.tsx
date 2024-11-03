@@ -39,9 +39,10 @@ export default function AlumniDirectory() {
   return (
     <section className="py-20 bg-muted/50">
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         className="container"
       >
         <div className="max-w-2xl mx-auto text-center mb-16">
@@ -83,33 +84,41 @@ export default function AlumniDirectory() {
           {/* Alumni Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {alumniProfiles.map((profile, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <img 
-                      src={profile.image} 
-                      alt={profile.name}
-                      className="w-20 h-20 rounded-full object-cover ring-2 ring-primary/10"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-lg">{profile.name}</h3>
-                      <p className="text-muted-foreground text-sm">{profile.role} at {profile.company}</p>
-                      <p className="text-xs text-primary mt-1">Class of {profile.graduation}</p>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <img 
+                        src={profile.image} 
+                        alt={profile.name}
+                        className="w-20 h-20 rounded-full object-cover ring-2 ring-primary/10"
+                      />
+                      <div>
+                        <h3 className="font-semibold text-lg">{profile.name}</h3>
+                        <p className="text-muted-foreground text-sm">{profile.role} at {profile.company}</p>
+                        <p className="text-xs text-primary mt-1">Class of {profile.graduation}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t flex gap-3">
-                    {profile.social.linkedin && (
-                      <LinkedinIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    )}
-                    {profile.social.twitter && (
-                      <TwitterIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    )}
-                    {profile.social.website && (
-                      <GlobeIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                    <div className="mt-4 pt-4 border-t flex gap-3">
+                      {profile.social.linkedin && (
+                        <LinkedinIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                      )}
+                      {profile.social.twitter && (
+                        <TwitterIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                      )}
+                      {profile.social.website && (
+                        <GlobeIcon className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
