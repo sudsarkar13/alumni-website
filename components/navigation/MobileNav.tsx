@@ -12,7 +12,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { MenuIcon, XIcon } from "lucide-react";
 import { links } from "./Nav";
-import { ThemeToggle } from "@/components/themes/theme-toggle";
 import ShimmerButton from "@/components/ui/shimmer-button";
 
 const MobileNav: React.FC = () => {
@@ -46,15 +45,14 @@ const MobileNav: React.FC = () => {
 								{link.name}
 							</Link>
 						);
-          })}
-          <Link href="#">
-							<ShimmerButton className={`shadow-2xl`}>
-								<span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white">
-									Join your peers
-								</span>
-							</ShimmerButton>
-						</Link>
-					<ThemeToggle />
+					})}
+					<Link href="#">
+						<ShimmerButton className={`shadow-2xl`}>
+							<span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white">
+								Join your peers
+							</span>
+						</ShimmerButton>
+					</Link>
 				</nav>
 			</SheetContent>
 		</Sheet>
