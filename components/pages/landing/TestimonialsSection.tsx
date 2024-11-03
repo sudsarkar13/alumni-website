@@ -1,6 +1,9 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
+import { motion } from "framer-motion"
 
 const testimonials = [
   {
@@ -27,33 +30,47 @@ export function TestimonialsSection() {
   return (
     <section className="py-20 lg:py-32 bg-muted/50">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Voices from Our Community
           </h2>
           <p className="text-muted-foreground text-lg">
             Hear from alumni who have found success and connection through our network.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-background">
-              <CardContent className="p-6">
-                <Quote className="w-10 h-10 text-primary/20 mb-4" />
-                <p className="text-lg mb-6">{testimonial.quote}</p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
-                    <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-background">
+                <CardContent className="p-6">
+                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                  <p className="text-lg mb-6">{testimonial.quote}</p>
+                  <div className="flex items-center gap-4">
+                    <Avatar className="w-12 h-12">
+                      <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
+                      <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-semibold">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
