@@ -32,9 +32,10 @@ export default function AlumniEvents() {
   return (
     <section className="py-24 bg-background">
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         className="container"
       >
         <div className="max-w-2xl mx-auto text-center mb-16">
@@ -44,48 +45,56 @@ export default function AlumniEvents() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
-            <Card key={index} className="group overflow-hidden hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <img 
-                    src={event.image} 
-                    alt={event.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge 
-                    className="absolute top-4 right-4 bg-primary hover:bg-primary"
-                  >
-                    {event.category}
-                  </Badge>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
-                    {event.title}
-                  </h3>
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span>{event.date}</span>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    <img 
+                      src={event.image} 
+                      alt={event.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <Badge 
+                      className="absolute top-4 right-4 bg-primary hover:bg-primary"
+                    >
+                      {event.category}
+                    </Badge>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                      {event.title}
+                    </h3>
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <Calendar className="w-4 h-4" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <Clock className="w-4 h-4" />
+                        <span>{event.time}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <MapPin className="w-4 h-4" />
+                        <span>{event.location}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Clock className="w-4 h-4" />
-                      <span>{event.time}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <MapPin className="w-4 h-4" />
-                      <span>{event.location}</span>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="secondary">{event.spots}</Badge>
+                      <Button className="group/btn">
+                        Register
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary">{event.spots}</Badge>
-                    <Button className="group/btn">
-                      Register
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </motion.div>
