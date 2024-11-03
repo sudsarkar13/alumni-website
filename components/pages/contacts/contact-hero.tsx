@@ -75,7 +75,7 @@ export default function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
             Let's Start a{' '}
             <span className="relative">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
