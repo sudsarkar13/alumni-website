@@ -33,10 +33,16 @@ export default function AlumniDonation() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         className="container"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Make a Lasting Impact</h2>
             <p className="text-muted-foreground mb-8 text-lg">
               Your contribution helps shape the future of education by providing opportunities 
@@ -73,9 +79,15 @@ export default function AlumniDonation() {
                 Learn More
               </Button>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="relative lg:h-[600px]">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="relative lg:h-[600px]"
+          >
             <div className="absolute inset-0 bg-primary/10 rounded-2xl"></div>
             <img 
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80" 
@@ -83,7 +95,7 @@ export default function AlumniDonation() {
               className="w-full h-full object-cover rounded-2xl shadow-xl"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/50 to-transparent rounded-2xl"></div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
