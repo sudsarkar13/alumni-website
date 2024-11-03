@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Faculty | Alumni Portal",
-  description: "Meet our faculty and their achievements.",
+  description: "Meet our distinguished faculty members and academic departments.",
 }
 
 const FacultyPageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
