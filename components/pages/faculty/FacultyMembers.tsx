@@ -1,7 +1,10 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { LinkedinIcon, MailIcon, BookOpenIcon } from "lucide-react"
+import { motion } from "framer-motion";
 
 const facultyMembers = [
   {
@@ -50,48 +53,62 @@ export default function FacultyMembers() {
   return (
     <section className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl font-bold mb-4">Featured Faculty</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Meet our distinguished faculty members leading research and innovation
           </p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {facultyMembers.map((member, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <Avatar className="h-32 w-32 border-4 border-primary/10">
-                    <AvatarImage src={member.image} alt={member.name} />
-                    <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                  </Avatar>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-medium text-primary">{member.role}</p>
-                    <p className="text-sm text-muted-foreground">{member.specialization}</p>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {member.research.map((topic, i) => (
-                        <Badge key={i} variant="secondary">{topic}</Badge>
-                      ))}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="group hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <Avatar className="h-32 w-32 border-4 border-primary/10">
+                      <AvatarImage src={member.image} alt={member.name} />
+                      <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold">{member.name}</h3>
+                      <p className="text-sm font-medium text-primary">{member.role}</p>
+                      <p className="text-sm text-muted-foreground">{member.specialization}</p>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {member.research.map((topic, i) => (
+                          <Badge key={i} variant="secondary">{topic}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center text-muted-foreground">
+                        <BookOpenIcon className="h-4 w-4 mr-1" />
+                        <span className="text-sm">{member.publications} publications</span>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <a href={member.linkedin} className="text-muted-foreground hover:text-primary transition-colors">
+                        <LinkedinIcon className="h-5 w-5" />
+                      </a>
+                      <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                        <MailIcon className="h-5 w-5" />
+                      </a>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center text-muted-foreground">
-                      <BookOpenIcon className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{member.publications} publications</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <a href={member.linkedin} className="text-muted-foreground hover:text-primary transition-colors">
-                      <LinkedinIcon className="h-5 w-5" />
-                    </a>
-                    <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-primary transition-colors">
-                      <MailIcon className="h-5 w-5" />
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
