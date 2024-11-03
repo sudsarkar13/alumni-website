@@ -28,13 +28,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-fns/tz@npm:^1.1.2":
-  version: 1.2.0
-  resolution: "@date-fns/tz@npm:1.2.0"
-  checksum: 10c0/411e9d4303b10951f6fd0189d18fb845f0d934a575df2176bc10daf664282c765fb6b057a977e446bbb1229151d89e7788978600a019f1fc24b5c75276d496bd
-  languageName: node
-  linkType: hard
-
 "@emailjs/browser@npm:^4.4.1":
   version: 4.4.1
   resolution: "@emailjs/browser@npm:4.4.1"
@@ -2280,7 +2273,7 @@ __metadata:
     next-themes: "npm:^0.3.0"
     postcss: "npm:^8.4.47"
     react: "npm:18.3.1"
-    react-day-picker: "npm:9.2.1"
+    react-day-picker: "npm:8.10.1"
     react-dom: "npm:18.3.1"
     react-hook-form: "npm:^7.53.1"
     react-icon-cloud: "npm:^4.1.4"
@@ -5413,15 +5406,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-day-picker@npm:9.2.1":
-  version: 9.2.1
-  resolution: "react-day-picker@npm:9.2.1"
-  dependencies:
-    "@date-fns/tz": "npm:^1.1.2"
-    date-fns: "npm:^4.1.0"
+"react-day-picker@npm:8.10.1":
+  version: 8.10.1
+  resolution: "react-day-picker@npm:8.10.1"
   peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/76b637337e852b0ebab60b16d70cc7f0ec57d0f8ae791ed9e1ce67029aa43a85b89b9f6b6560767cca4ab11641ed8eede7f6ec2aa9d3c5a06e23e9a20694552d
+    date-fns: ^2.28.0 || ^3.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/a0ff28c4b61b3882e6a825b19e5679e2fdf3256cf1be8eb0a0c028949815c1ae5a6561474c2c19d231c010c8e0e0b654d3a322610881e0655abca05a2e03d9df
   languageName: node
   linkType: hard
 
