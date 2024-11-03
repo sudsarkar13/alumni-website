@@ -33,9 +33,10 @@ export default function AlumniNews() {
   return (
     <section className="py-24 bg-muted/50">
       <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         className="container"
       >
         <div className="max-w-2xl mx-auto text-center mb-16">
@@ -45,34 +46,42 @@ export default function AlumniNews() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {news.map((item, index) => (
-            <Card key={index} className="group overflow-hidden hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-sm px-3 py-1 rounded-full">
-                    {item.category}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-sm px-3 py-1 rounded-full">
+                      {item.category}
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-sm text-primary font-medium mb-2">{item.date}</p>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{item.excerpt}</p>
-                  <Button 
-                    variant="ghost" 
-                    className="group/btn text-primary hover:text-primary p-0 h-auto font-medium"
-                  >
-                    Read More 
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="p-6">
+                    <p className="text-sm text-primary font-medium mb-2">{item.date}</p>
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{item.excerpt}</p>
+                    <Button 
+                      variant="ghost" 
+                      className="group/btn text-primary hover:text-primary p-0 h-auto font-medium"
+                    >
+                      Read More 
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </motion.div>
