@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/themes/theme-toggle";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
@@ -30,8 +29,8 @@ export function Header() {
 								Join Network
 							</span>
 						</ShimmerButton>
-						<ThemeToggle />
 					</div>
+					<ThemeToggle />
 
 					{/* Mobile Menu */}
 					<div className="lg:hidden">
