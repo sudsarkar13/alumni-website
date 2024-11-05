@@ -3,38 +3,46 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Heart, Users, GraduationCap, ArrowRight } from "lucide-react"
+import { Heart, Users, GraduationCap, ArrowRight, Sparkles } from "lucide-react"
 
 const stats = [
   {
     icon: Heart,
     value: "$2M+",
     label: "Donations Raised",
-    description: "Supporting student scholarships"
+    description: "Supporting student scholarships",
+    color: "text-rose-500"
   },
   {
     icon: Users,
     value: "500+",
     label: "Students Supported",
-    description: "Through alumni contributions"
+    description: "Through alumni contributions",
+    color: "text-blue-500"
   },
   {
     icon: GraduationCap,
     value: "100%",
     label: "Impact Rate",
-    description: "Direct student benefit"
+    description: "Direct student benefit",
+    color: "text-emerald-500"
   }
 ]
 
 export default function AlumniDonation() {
   return (
-    <section className="py-24 bg-[#0B1120]">
+    <section className="py-24 bg-[#0B1120] relative overflow-hidden">
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container"
+        className="container relative z-10"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -43,8 +51,15 @@ export default function AlumniDonation() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Make a Lasting Impact</h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">Double Impact: Matching Donations Available</span>
+            </div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              Make a Lasting <span className="text-primary">Impact</span> on Future Generations
+            </h2>
+            <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
               Your contribution helps shape the future of education by providing opportunities 
               for deserving students. Every donation, no matter the size, makes a difference 
               in building tomorrow's leaders.
@@ -52,21 +67,29 @@ export default function AlumniDonation() {
             
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
               {stats.map((stat, index) => (
-                <Card key={index} className="bg-background/10 border-0 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <stat.icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-2xl font-bold mb-1 text-white">{stat.value}</h3>
-                    <p className="text-muted-foreground font-medium mb-1">{stat.label}</p>
-                    <p className="text-sm text-muted-foreground/80">{stat.description}</p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  key={index}
+                >
+                  <Card className="bg-background/10 border-0 backdrop-blur-sm hover:bg-background/20 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <stat.icon className={`w-8 h-8 ${stat.color} mb-4`} />
+                      <h3 className="text-3xl font-bold mb-1 text-white">{stat.value}</h3>
+                      <p className="text-primary font-medium mb-1">{stat.label}</p>
+                      <p className="text-sm text-muted-foreground/80">{stat.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="text-base h-12 px-8 font-medium"
+                className="text-base h-14 px-8 font-medium bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300"
               >
                 Donate Now
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -74,7 +97,7 @@ export default function AlumniDonation() {
               <Button 
                 size="lg" 
                 variant="secondary" 
-                className="text-base h-12 px-8 font-medium"
+                className="text-base h-14 px-8 font-medium hover:bg-secondary/90 hover:scale-105 transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -86,15 +109,22 @@ export default function AlumniDonation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative lg:h-[600px]"
+            className="relative lg:h-[600px] group"
           >
-            <div className="absolute inset-0 bg-primary/10 rounded-2xl"></div>
+            <div className="absolute inset-0 bg-primary/10 rounded-2xl transition-all duration-300 group-hover:bg-primary/20"></div>
             <img 
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80" 
               alt="Students"
-              className="w-full h-full object-cover rounded-2xl shadow-xl"
+              className="w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/50 to-transparent rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/80 to-transparent rounded-2xl"></div>
+            
+            <div className="absolute bottom-8 left-8 right-8 bg-background/20 backdrop-blur-md p-6 rounded-xl border border-white/10">
+              <h4 className="text-white font-semibold mb-2">Your Impact</h4>
+              <p className="text-white/80 text-sm">
+                "Every $1000 donated provides a semester's worth of educational resources for a student in need."
+              </p>
+            </div>
           </motion.div>
         </div>
       </motion.div>
