@@ -11,8 +11,8 @@ export function Header() {
 				{/* Logo */}
 				<Link href="/" className="flex items-center space-x-2">
 					<span className="text-2xl font-bold">
-						Alumni
-						<span className="text-yellow-500 dark:text-[#00ff99]">Connect</span>
+						KVS{" "}
+						<span className="text-yellow-500 dark:text-[#00ff99]">Alumni</span>
 					</span>
 				</Link>
 
