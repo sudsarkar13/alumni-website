@@ -10,16 +10,20 @@ export const links = [
 		path: "/",
 	},
 	{
-		name: "Administration",
-		path: "/administration",
-	},
-	{
-		name: "Faculty",
-		path: "/faculty",
+		name: "About",
+		path: "/about",
 	},
 	{
 		name: "Alumni",
 		path: "/alumni",
+	},
+	{
+		name: "Association",
+		path: "/association",
+	},
+	{
+		name: "Media",
+		path: "/media",
 	},
 	{
 		name: "Contact",
