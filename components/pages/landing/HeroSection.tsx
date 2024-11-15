@@ -140,7 +140,8 @@ export function HeroSection() {
 						className="relative order-1 lg:order-2 h-[300px] sm:h-[400px] lg:h-[600px]">
 						<div className="absolute inset-0 rounded-2xl overflow-hidden">
 							<Image
-								src="https://images.pexels.com/photos/7092614/pexels-photo-7092614.jpeg"
+								// src="https://images.pexels.com/photos/7092614/pexels-photo-7092614.jpeg"
+								src="/assets/images/KVS-ALumni-Meet.jpeg"
 								alt="Students celebrating graduation"
 								fill
 								className="object-cover"
