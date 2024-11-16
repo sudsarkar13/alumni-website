@@ -15,6 +15,11 @@ const achievements = [
   // Add more achievements
 ];
 
+const ACHIEVEMENT_IMAGES = {
+  awards: "https://images.unsplash.com/photo-1569038786784-24a715a36507?q=80&w=2070&auto=format&fit=crop",
+  recognition: "https://images.unsplash.com/photo-1494949649109-ecfc3b8c35df?q=80&w=2069&auto=format&fit=crop",
+};
+
 export default function SchoolAchievements() {
   return (
     <section className="py-20">
