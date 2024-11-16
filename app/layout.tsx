@@ -5,6 +5,7 @@ import "./globals.css";
 // components
 import { ThemeProvider } from "@/components/themes/theme-provider";
 import { Header } from "@/components/navigation/Header";
+import { Footer } from "@/components/footer/footer";
 
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<Header />
 					{children}
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>
