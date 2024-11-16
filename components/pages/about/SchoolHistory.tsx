@@ -18,6 +18,11 @@ const milestones = [
   // Add more milestones
 ];
 
+const HISTORY_IMAGES = {
+  establishment: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop",
+  growth: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop",
+};
+
 export default function SchoolHistory() {
   return (
     <section className="py-20 relative">
