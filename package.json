@@ -60,6 +60,7 @@
     "react-financial-charts": "^2.0.1",
     "react-hook-form": "^7.53.2",
     "react-icon-cloud": "^4.1.4",
+    "react-pdf": "^9.1.1",
     "react-photo-gallery": "^8.0.0",
     "react-resizable-panels": "^2.1.6",
     "react-spring": "^9.7.4",
