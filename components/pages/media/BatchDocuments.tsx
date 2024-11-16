@@ -59,12 +59,12 @@ export default function BatchDocuments() {
           viewport={{ once: true }}
           className="flex flex-wrap gap-4 mb-8"
         >
-          <div className="flex-1 min-w-[200px]">
+          <div className="flex-1 min-w-[200px] relative">
             <Input
               placeholder="Search documents..."
-              className="w-full"
-              icon={<Search className="w-4 h-4" />}
+              className="w-full pl-10"
             />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
           </div>
           <Select defaultValue="all">
             <SelectTrigger className="w-[180px]">
