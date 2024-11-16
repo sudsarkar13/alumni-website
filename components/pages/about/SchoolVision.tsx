@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Book, Users, Star } from "lucide-react";
 
+const VISION_BG = "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?q=80&w=2069&auto=format&fit=crop";
+
 export default function SchoolVision() {
   const visionPoints = [
     {
